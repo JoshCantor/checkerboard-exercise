@@ -1,25 +1,21 @@
-var Board = function (numberOfTiles) {
-	var board = [];
-	for (i = 1; i < numberOfTiles; i++) {
+function createBoard (numberOfTiles) {
+	for (i = 1; i <= numberOfTiles; i++) {
 		var color = "red";
 		if (i % 2 !== 0) {
 			color = "black";
 		}
-		var tile = new Tile(i, color);
-		board.push(tile);
+		var tile =  createTile(color);
+		document.body.appendChild(tile);
 	}
-	this.board = board;
 }
 
-var Tile = function (name, color) {
-	var name = document.createElement("div");
-	document.body.appendChild(name);
-	name.style.width = "11.1%";
-	name.style.paddingBottom = "11.1%"
-	name.style.float = "left";
-	name.style.background = color
-	
+function createTile (color) {
+	var tile = document.createElement("div");
+	tile.style.width = "11.1%";
+	tile.style.paddingBottom = "11.1%"
+	tile.style.float = "left";
+	tile.style.background = color
+	return tile;
 }
 
-var board = new Board(64);
-console.log(board);
+createBoard(63);

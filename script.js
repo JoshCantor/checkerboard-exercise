@@ -1,9 +1,11 @@
+function getRandomIntInclusive(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function createBoard (numberOfTiles) {
-	for (i = 0; i < numberOfTiles; i++) {
-		var color = "red";
-		if (i % 2 !== 0) {
-			color = "blue";
-		} 
+	document.body.innerHTML = "";
+	for (i = 1; i <= numberOfTiles; i++) {
+		var color = "#" + getRandomIntInclusive(100000, 999999) 
 		var tile =  createTile(color);
 		document.body.appendChild(tile);
 	}
@@ -18,5 +20,6 @@ function createTile (color) {
 	return tile;
 }
 
-createBoard(63);
 
+var intervalID = window.setInterval(createBoard, 2000, 63)
+console.log(intervalID);

@@ -1,9 +1,10 @@
+function getRandomIntInclusive(min, max) {
+		return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function createBoard (numberOfTiles) {
 	for (i = 1; i <= numberOfTiles; i++) {
-		var color = "red";
-		if (i % 2 !== 0) {
-			color = "black";
-		}
+		var color = "#" + getRandomIntInclusive(100000, 999999)
 		var tile =  createTile(color);
 		document.body.appendChild(tile);
 	}

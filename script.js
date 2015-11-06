@@ -1,15 +1,18 @@
 function createBoard (numberOfTiles) {
-	var aValue = 0.1;
+	var aValue = 0;
+	var color1 = "rgba(255, 0, 0, " + aValue + ")";
+	var color2 = "rgba(0, 0, 255, " + aValue + ")";
+
 	for (i = 0; i < numberOfTiles; i++) {
-		if (i % 9 === 0) {
-			aValue += 0.1;
-																									
-		}
+		aValue += (1 / numberOfTiles);	
+		color1 = "rgba(255, 0, 0, " + aValue + ")";
+		color2 = "rgba(0, 0, 255, " + aValue + ")";
+		console.log(color2);																		
 		if (i % 2 !== 0) {
-			var tile =  createTile("linear-gradient(to top, red, rgba(255,0,0," + aValue + "))");
+			var tile =  createTile(color1);
 			document.body.appendChild(tile);
 		} else {
-			var tile =  createTile("linear-gradient(to top, blue, rgba(0,0,255," + aValue + "))");
+			var tile =  createTile(color2);
 			document.body.appendChild(tile);
 		}
 		
@@ -21,7 +24,7 @@ function createTile (color) {
 	tile.style.width = "11.1%";
 	tile.style.paddingBottom = "11.1%"
 	tile.style.float = "left";
-	tile.style.background = color
+	tile.style.backgroundColor = color
 	return tile;
 }
 
